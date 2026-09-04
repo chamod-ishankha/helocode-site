@@ -172,7 +172,16 @@ code {
 .toc a:hover { color: var(--gold); border-left-color: var(--gold); }
 @media (max-width: 900px) { .doc { grid-template-columns: 1fr; gap: 0; padding-block: 40px 80px; } .toc { display: none; } }
 
-.doc-body { max-width: 720px; }
+/* min-width: 0 is load-bearing. Grid and flex children default to
+   min-width: auto, so the table's min-width: 460px would force this track
+   wider than a phone screen and push the body text off the right edge —
+   with body{overflow-x:hidden} quietly hiding the evidence. Zeroing it lets
+   the track shrink and keeps the overflow inside .table-wrap, where it can
+   scroll on its own. */
+.doc-body { max-width: 720px; min-width: 0; }
+.doc > * { min-width: 0; }
+.app-card > * { min-width: 0; }
+.hero > * { min-width: 0; }
 .doc-body h2 { scroll-margin-top: 88px; display: flex; align-items: baseline; gap: 12px; }
 .doc-body h2 .num {
   font-size: 13px; color: var(--gold-dim); font-variant-numeric: tabular-nums;
@@ -188,7 +197,7 @@ code {
 .note.warn { background: rgba(227,182,98,.08); border-color: rgba(227,182,98,.28); border-left-color: var(--gold); }
 
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin: 20px 0; }
-table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 460px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 420px; }
 th, td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
 tr:last-child td { border-bottom: none; }
 th { background: rgba(255,255,255,.035); color: var(--ink); font-weight: 600; font-size: 13.5px; letter-spacing: .02em; }

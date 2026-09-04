@@ -60,7 +60,12 @@ body {
     radial-gradient(1.1px 1.1px at 94% 58%, rgba(255,255,255,.4) 50%, transparent 51%);
 }
 
-.shell { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+/* Horizontal padding is set on its own axis so that section rules below can
+   add vertical padding without silently resetting it to zero — which is what
+   `padding: 96px 0` on a .shell element would do, letting content touch the
+   screen edge on any viewport narrower than --maxw. */
+.shell { max-width: var(--maxw); margin: 0 auto; padding-inline: 28px; }
+@media (max-width: 560px) { .shell { padding-inline: 20px; } }
 
 /* ── Header ─────────────────────────────────────────────── */
 .nav {
@@ -107,11 +112,11 @@ code {
 .lede { font-size: 18.5px; line-height: 1.65; color: var(--ink-2); }
 
 /* ── Hero ───────────────────────────────────────────────── */
-.hero { padding: 96px 0 72px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+.hero { padding-block: 96px 72px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
 .hero-star { display: flex; justify-content: center; }
 .hero-star svg { width: min(300px, 76vw); height: auto; filter: drop-shadow(0 0 46px rgba(227,182,98,.28)); }
 @media (max-width: 820px) {
-  .hero { grid-template-columns: 1fr; padding: 60px 0 48px; gap: 36px; }
+  .hero { grid-template-columns: 1fr; padding-block: 60px 48px; gap: 36px; }
   .hero-star { order: -1; }
   .hero-star svg { width: min(200px, 56vw); }
 }
@@ -141,7 +146,7 @@ code {
 }
 
 /* ── Legal pages ────────────────────────────────────────── */
-.doc { display: grid; grid-template-columns: 218px 1fr; gap: 56px; padding: 56px 0 110px; align-items: start; }
+.doc { display: grid; grid-template-columns: 218px 1fr; gap: 56px; padding-block: 56px 110px; align-items: start; }
 .toc { position: sticky; top: 84px; font-size: 14.5px; }
 .toc-title {
   font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase;
@@ -153,7 +158,7 @@ code {
   transition: color .18s, border-color .18s;
 }
 .toc a:hover { color: var(--gold); border-left-color: var(--gold); }
-@media (max-width: 900px) { .doc { grid-template-columns: 1fr; gap: 0; padding-top: 40px; } .toc { display: none; } }
+@media (max-width: 900px) { .doc { grid-template-columns: 1fr; gap: 0; padding-block: 40px 80px; } .toc { display: none; } }
 
 .doc-body { max-width: 720px; }
 .doc-body h2 { scroll-margin-top: 88px; display: flex; align-items: baseline; gap: 12px; }
@@ -177,9 +182,14 @@ tr:last-child td { border-bottom: none; }
 th { background: rgba(255,255,255,.035); color: var(--ink); font-weight: 600; font-size: 13.5px; letter-spacing: .02em; }
 
 /* ── Footer ─────────────────────────────────────────────── */
-.foot { border-top: 1px solid var(--line); padding: 34px 0 56px; font-size: 14.5px; color: var(--muted); }
+.foot { border-top: 1px solid var(--line); padding-block: 34px 56px; font-size: 14.5px; color: var(--muted); }
 .foot-in { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center; }
 .foot a { color: var(--muted); text-decoration: none; }
 .foot a:hover { color: var(--gold); }
+
+@media (max-width: 560px) {
+  .nav-in { padding: 13px 20px; }
+  .card { padding: 22px; }
+}
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

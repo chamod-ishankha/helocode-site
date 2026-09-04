@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HeloCode Labs</title>
+<meta name="description" content="HeloCode Labs builds mobile apps for Sri Lanka and beyond.">
+<style>
+:root {
+  --bg: #12142f;
+  --bg2: #1e1a3a;
+  --card: #1b1d3d;
+  --gold: #d4a24c;
+  --text: #e8e6f0;
+  --muted: #a9a4c4;
+  --line: #2e2f57;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: linear-gradient(160deg, var(--bg), var(--bg2));
+  color: var(--text);
+  font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+header { border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 40px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+.brand svg { width: 34px; height: 34px; }
+.brand b { font-size: 19px; letter-spacing: .2px; }
+h1 { font-size: 30px; line-height: 1.25; margin: 0 0 8px; }
+h2 { font-size: 20px; margin: 40px 0 12px; color: var(--gold); }
+h3 { font-size: 16px; margin: 24px 0 8px; }
+.meta { color: var(--muted); font-size: 14px; margin: 0 0 32px; }
+p, li { color: var(--text); }
+ul { padding-left: 22px; }
+li { margin: 6px 0; }
+a { color: var(--gold); }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; }
+.note {
+  background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--gold);
+  padding: 14px 18px; border-radius: 6px; margin: 20px 0; font-size: 15px;
+}
+footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+code { background: #0e1030; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 100 100" width="34" height="34" aria-hidden="true"><path fill="#d4a24c" d="M50 2 58 34 82 18 66 42 98 50 66 58 82 82 58 66 50 98 42 66 18 82 34 58 2 50 34 42 18 18 42 34Z"/></svg>
+    <b>HeloCode Labs</b>
+  </a>
+</header>
+
+<h1>HeloCode Labs</h1>
+<p class="meta">Mobile apps built in Sri Lanka.</p>
+
+<h2>Apps</h2>
+
+<h3>Nakshatra</h3>
+<p>Sinhala, Tamil and English astrology and almanac app — daily horoscope, nekath,
+rahu kalaya, panchanga, birth charts and porondam compatibility. All calculations
+run on your device; birth details are never uploaded.</p>
+<p>
+  <a href="nakshatra/privacy.html">Privacy Policy</a> ·
+  <a href="nakshatra/terms.html">Terms of Service</a>
+</p>
+
+<footer>
+  © 2026 HeloCode Labs
+</footer>
+
+</div>
+</body>
+</html>
